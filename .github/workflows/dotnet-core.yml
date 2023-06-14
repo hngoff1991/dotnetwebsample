@@ -1,12 +1,17 @@
-name: .NET Core
+name: CI
 
 on:
-  workflow_dispatch:
+  push:
+    branches:
+       - main
+  pull_request:
+    branches:
+        - main
   
 jobs:
   build:
-
-    runs-on: ${{ matrix.os }}
+    name: Chamada Azure Pipeline  
+    runs-on: ubuntu-latest
     strategy:
       matrix:
         node_version: ['8', '10', '12']
