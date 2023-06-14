@@ -31,3 +31,9 @@ jobs:
     - name: Publish
       run: dotnet publish -c Release -o '${{ github.workspace }}/out'
   
+    - uses: Azure/pipelines@v1
+      with:
+          azure-devops-project-url: 'https://dev.azure.com/HenriqueitAzurePipelines/Modulo%203%20-%20Pipelines%20com%20YAML'
+          azure-pipeline-name: 'Modulo 3 - Pipelines com YAML' # name of the Azure pipeline to be triggered
+          azure-devops-token: '${{ secrets.AZURE_DEVOPS_TOKEN }}'
+          azure-pipeline-variables:  '{"variable1": "value1", "variable2": "value2"}' # optional stringified json
